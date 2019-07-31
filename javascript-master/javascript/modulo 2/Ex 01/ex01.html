@@ -1,31 +1,33 @@
 <html>
 	<head>
+			<title>Exercício 01</title>
 		<meta charset="UTF-8">
 		<title>Curso Javascript</title>
 	</head>
 	<body>
-		<div id="app">
-			<button class="botao">Adicionar Quadrado Vermelho</button>
-			<div class="box"></div>
-		</div>
+
+		<button class="botao">Adicionar Quadrado Vermelho</button>
+		
+		<div id="boxes"></div>
 
 		<script>
 
 			function insereQuadrado(){
-				var boxElement = document.querySelector('.box');
-				boxElement.style.width = 100;
-				boxElement.style.height = 100;
-				boxElement.style.backgroundColor = "#F00";
-			}
+				var box = document.createElement('div');
+				box.style.width = 100;
+				box.style.height = 100;
+				box.style.backgroundColor = "#F00";
+				boxElement.appendChild(box);
+			}			
 
 			var buttonElement = document.querySelector('button.botao');
-			console.log(buttonElement);
+			var boxElement = document.querySelector('div#boxes');
 
 			buttonElement.onclick = function (){
 
-				insereQuadrado();
+				insereQuadrado();				
 
-			}
+			};
 
 		</script>
 	</body>
