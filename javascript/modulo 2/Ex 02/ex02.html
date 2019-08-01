@@ -1,8 +1,7 @@
 <html>
 	<head>
-			<title>Exercício 01</title>
+		<title>Exercício 02</title>
 		<meta charset="UTF-8">
-		<title>Curso Javascript</title>
 	</head>
 	<body>
 
@@ -26,6 +25,9 @@
 				box.style.width = 100;
 				box.style.height = 100;
 				box.style.backgroundColor = "#F00";
+				box.onmouseover = function () {
+        			box.style.backgroundColor = getRandomColor();
+      			}
 				boxElement.appendChild(box);
 			}
 
