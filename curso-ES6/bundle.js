@@ -1,6 +1,3 @@
-
-
-
 /*
 // OBJECT SHORT SYNTAX
 
@@ -224,3 +221,4 @@ document.querySelector('button').onclick = function (){
 
 MinhaLista.mostraUsuario();
 */
+"use strict";
