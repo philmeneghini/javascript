@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Exercício 01</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+
+		<button class="botao">Adicionar Quadrado Vermelho</button>
+		
+		<div id="boxes"></div>
+
+		<script>
+
+			function insereQuadrado(){
+				var box = document.createElement('div');
+				box.style.width = 100;
+				box.style.height = 100;
+				box.style.backgroundColor = "#F00";
+				boxElement.appendChild(box);
+			}			
+
+			var buttonElement = document.querySelector('button.botao');
+			var boxElement = document.querySelector('div#boxes');
+
+			buttonElement.onclick = function (){
+
+				insereQuadrado();				
+
+			};
+
+		</script>
+	</body>
+</html>
