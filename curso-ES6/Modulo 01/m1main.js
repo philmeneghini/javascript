@@ -1,6 +1,3 @@
-
-
-
 /*
 // OBJECT SHORT SYNTAX
 
@@ -33,6 +30,26 @@ console.log(`Meu nome é ${nome} e tenho ${idade} anos.`);
 
 // REST
 
+const usuario = {
+	nome: 'Diego',
+	idade: 23,
+	empresa: 'Rocketseat'
+};
+
+const {nome, ...resto} = usuario;
+
+console.log(nome);
+console.log(resto);
+
+// REST
+
+function soma(...params){
+	return params.reduce((total, next) => total + next);
+}
+
+console.log(soma(1, 3, 4));
+
+
 function soma(a, b, ...params){
 	return params;
 }
@@ -47,18 +64,6 @@ console.log(a);
 console.log(b);
 console.log(c);
 
-// REST
-
-const usuario = {
-	nome: 'Diego',
-	idade: 23,
-	empresa: 'Rocketseat'
-};
-
-const {nome, ...resto} = usuario;
-
-console.log(nome);
-console.log(resto);
 
 // SPREAD
 
@@ -93,6 +98,10 @@ const usuario = {
 };
 
 console.log(usuario);
+
+// const { nome, endereco: { cidade, estado } } = usuario;
+//console.log(nome);
+//console.log(cidade);
 
 function mostraNome({nome, idade}){
 	console.log(nome, idade);
