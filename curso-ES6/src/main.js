@@ -1,18 +1,30 @@
-// 1.1
+import axios from "axios";
 
-import ClasseUsuario from "./functions";
+// ASYNC/AWAIT
 
-ClasseUsuario.info();
+/*
+const minhaPromise = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("OK");
+    }, 2000);
+  });
 
-// 1.2
 
-import { idade } from "./functions";
+// async function executaPromise() {
+//   console.log(await minhaPromise());
+//   console.log(await minhaPromise());
+//   console.log(await minhaPromise());
+// }
+// 
+// executaPromise();
 
-console.log(`Idade = ${idade}`);
 
-// 1.3
+const executaPromise = async () => {
+  console.log(await minhaPromise());
+  console.log(await minhaPromise());
+  console.log(await minhaPromise());
+};
 
-import Usuario, { idade as IdadeUsuario } from "./functions";
-
-Usuario.info();
-console.log(`Idade 1.3 = ${IdadeUsuario}`);
+executaPromise();
+*/
