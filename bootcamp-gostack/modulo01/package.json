@@ -1,10 +1,10 @@
 {
   "name": "modulo01",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./Desafio01/desafio01.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon ./Desafio01/desafio01.js"
   },
   "dependencies": {
     "express": "^4.17.1"
