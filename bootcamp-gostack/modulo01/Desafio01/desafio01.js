@@ -15,12 +15,31 @@ const projects = [{
   tasks: []
 }];
 
+var contReq=0;
+
+server.use((req, res, next) => {
+  contReq++;
+
+  console.log(`Requests: ${contReq}`);
+  
+  return next();
+});
+
+function checkID(req, res, next) {
+  const { id } = req.params;
+
+  if (!projects.find(p => p.id == id)){
+    return res.status(400).json({ error: 'ID is invalid.' });
+  }
+  
+  return next();
+}
 // POST /projects
 
 server.post('/projects', (req, res) => {
-  const { project } = req.body;
+  const project = req.body;
   
-  projects.push(project);
+  projects.push( project );
 
   console.log('post rodou');
 
@@ -41,24 +60,45 @@ server.get("/projects", (req, res) => {
 
 // PUT /projects/:id
 
+server.put("/projects/:id", checkID, (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+
+  const project = projects.find(p => p.id == id);
+
+  project.title = title;
+
+  console.log('put rodou');
+
+  return res.json(project);
+});
+
 // DELETE /projects/:id
+server.delete("/projects/:id", checkID,  (req, res) => {
+  const { id } = req.params;
+
+  const project = projects.findIndex(proj => proj.id == id);
+
+  projects.splice(project, 1);
+
+  console.log('delete rodou');
+
+  return res.json(projects);
+});
 
 // POST /projects/:id/tasks
 
-server.post('/projects/:id/tasks', (req, res) => {
-  const { id, tasks } = req.params;
+server.post('/projects/:id/tasks', checkID,  (req, res) => {
+  const { id } = req.params;
   const { title } = req.body;
 
-  
-  projects[projectId] = {
-    id: projectId,
-    title: title,
-    tasks: projectTask
-  }
+  const project = projects.find(p => p.id == id);
+
+  project.tasks.push(title);
 
   console.log('post task rodou');
 
-  return res.json(projects);
+  return res.json(project);
 
 });
 
