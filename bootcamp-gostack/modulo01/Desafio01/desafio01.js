@@ -4,13 +4,13 @@ const server = express();
 
 server.use(express.json());
 
-//array que armazena os projetos
+// Array que armazena os projetos
 const projects = [];
 
-//contador de requests
+// Contador de requests
 var contRequests=0;
 
-// middleware global para contagem de requests
+// Middleware global para contagem de requests
 server.use((req, res, next) => {
   contRequests++;
 
@@ -19,7 +19,7 @@ server.use((req, res, next) => {
   return next();
 });
 
-//middleware para checar se projeto com a ID selecionada existe
+// middleware para checar se projeto com a ID selecionada existe
 function checkID(req, res, next) {
   const { id } = req.params;
 
