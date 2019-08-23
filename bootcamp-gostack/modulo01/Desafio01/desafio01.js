@@ -4,27 +4,22 @@ const server = express();
 
 server.use(express.json());
 
-const projects = [{
-  id: "1",
-  title: "Projeto 1",
-  tasks: []
-},
-{
-  id: "2",
-  title: "Projeto 2",
-  tasks: []
-}];
+//array que armazena os projetos
+const projects = [];
 
-var contReq=0;
+//contador de requests
+var contRequests=0;
 
+// middleware global para contagem de requests
 server.use((req, res, next) => {
-  contReq++;
+  contRequests++;
 
-  console.log(`Requests: ${contReq}`);
+  console.log(`Requests: ${contRequests}`);
   
   return next();
 });
 
+//middleware para checar se projeto com a ID selecionada existe
 function checkID(req, res, next) {
   const { id } = req.params;
 
@@ -34,7 +29,8 @@ function checkID(req, res, next) {
   
   return next();
 }
-// POST /projects
+
+// POST - Inserir Projeto
 
 server.post('/projects', (req, res) => {
   const project = req.body;
@@ -48,7 +44,7 @@ server.post('/projects', (req, res) => {
 });
 
 
-// GET /projects
+// GET - Exibir Projetos
 
 server.get("/projects", (req, res) => {
   
@@ -58,7 +54,7 @@ server.get("/projects", (req, res) => {
 
 });
 
-// PUT /projects/:id
+// PUT - Editar Titulo de um Projeto
 
 server.put("/projects/:id", checkID, (req, res) => {
   const { id } = req.params;
@@ -73,7 +69,7 @@ server.put("/projects/:id", checkID, (req, res) => {
   return res.json(project);
 });
 
-// DELETE /projects/:id
+// DELETE - Remover um Projeto
 server.delete("/projects/:id", checkID,  (req, res) => {
   const { id } = req.params;
 
@@ -86,7 +82,7 @@ server.delete("/projects/:id", checkID,  (req, res) => {
   return res.json(projects);
 });
 
-// POST /projects/:id/tasks
+// POST - Inserir Task em um Projeto
 
 server.post('/projects/:id/tasks', checkID,  (req, res) => {
   const { id } = req.params;
