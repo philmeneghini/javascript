@@ -10,11 +10,11 @@ class ScheduleController {
     });
 
     if (!checkUserProvider){
-      return res.status(401).json({ error: 'User is not a provider0' });
+      return res.status(401).json({ error: 'User is not a provider' });
     }
 
     const { date } = req.query;
-    const parsedDate = parseIso(date);
+    const parsedDate = parseISO(date);
 
     const appointments = await Appointment.findAll({
       where: {
