@@ -48,6 +48,16 @@ class AppointmentController {
     const { provider_id, date } = req.body;
 
     /*
+      Check if user is not the same as the provider
+    */
+
+    if (req.userId === provider_id) {
+    return res
+     .status(401)
+     .json({ error: 'You cannot create appointments with yourself.' });
+    }
+
+    /*
       Check if provider_id is a provider
     */
    const isProvider = await User.findOne({
