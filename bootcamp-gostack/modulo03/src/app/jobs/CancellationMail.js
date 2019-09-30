@@ -1,4 +1,4 @@
-import mail from "../../lib/Mail";
+import Mail from "../../lib/Mail";
 import { format, parseISO } from "date-fns";
 import pt from "date-fns/locale/pt";
 
