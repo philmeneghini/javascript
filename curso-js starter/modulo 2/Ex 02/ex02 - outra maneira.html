@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso javascript - Exercicio 02</title>
+    </head>
+    <body>
+        <div id="app" class = "app"></div>
+        <div id="box"></div> 
+        <script>
+
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            
+            var buttonElement = document.createElement('button');
+
+            var textElement = document.createTextNode('Clique para adicionar um quadrado vermelho');
+            buttonElement.appendChild(textElement);
+
+            var containerElement = document.querySelector('#app');
+            containerElement.appendChild(buttonElement);
+
+            var boxElement = document.querySelector('div#box');
+
+            buttonElement.onclick = function (){
+
+                var redBoxElement = document.createElement('div');
+
+                redBoxElement.style.width = 100;
+                redBoxElement.style.height = 100;
+                redBoxElement.style.backgroundColor = '#f00';
+
+                boxElement.appendChild(redBoxElement);
+
+                redBoxElement.onmouseover = function () {
+        			redBoxElement.style.backgroundColor = getRandomColor();
+      			}
+
+            }
+
+
+        </script>
+    </body>
+</html>
