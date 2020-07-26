@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso javascript - Exercicio 01</title>
+    </head>
+    <body>
+        <div id="app" class = "app"></div>
+        <div id="box"></div> 
+        <script>
+
+            var buttonElement = document.createElement('button');
+
+            var textElement = document.createTextNode('Clique para adicionar um quadrado vermelho');
+            buttonElement.appendChild(textElement);
+
+            var containerElement = document.querySelector('#app');
+            containerElement.appendChild(buttonElement);
+
+            var boxElement = document.querySelector('div#box');
+
+            buttonElement.onclick = function (){
+
+                var redBoxElement = document.createElement('div');
+
+                redBoxElement.style.width = 100;
+                redBoxElement.style.height = 100;
+                redBoxElement.style.backgroundColor = '#f00';
+
+                boxElement.appendChild(redBoxElement);
+
+            }
+
+        </script>
+    </body>
+</html>
