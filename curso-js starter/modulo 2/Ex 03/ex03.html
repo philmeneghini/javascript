@@ -11,18 +11,18 @@
 
 			var nomes = ["Diego", "Gabriel", "Lucas"];
 
-			var linkElement = document.createElement('ul');
+           		var listElement = document.createElement('ul');
 
 			for (nome of nomes){
-				var nameElement = document.createElement('li');
-				linkElement.appendChild(nameElement);
+				var listItemElement = document.createElement('li');
+				listElement.appendChild(listItemElement);
 
 				var textElement = document.createTextNode(nome);
-				nameElement.appendChild(textElement);
+				listItemElement.appendChild(textElement);
 			}
 
 			var containerElement = document.querySelector('#app');
-			containerElement.appendChild(linkElement);
+			containerElement.appendChild(listElement);
 
 		</script>
 	</body>
