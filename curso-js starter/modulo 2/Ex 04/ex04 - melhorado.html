@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso javascript - Exercicio 03</title>
+    </head>
+    <body>
+
+        <input type="text" name="nome">
+        <button onClick="adicionar()">Adicionar</button>
+
+        <div id = "app" class="app"></div>
+
+        <script>
+
+            function adicionar(){
+                var newTextElement = document.querySelector('input').value;
+                nomes.push(newTextElement);
+
+                var containerElement = document.querySelector('#app');
+				var ulElement = document.querySelector('ul');
+				containerElement.removeChild(ulElement);
+				imprimeNomes(nomes);
+
+                document.querySelector('input').value = "";
+            }
+
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+
+            function imprimeNomes(nomes){
+
+                var linkElement = document.createElement('ul');
+
+                for (nome of nomes){
+
+                    var nameElement = document.createElement('li');
+                    linkElement.appendChild(nameElement);
+
+                    var textElement = document.createTextNode(nome);
+                    nameElement.appendChild(textElement);
+
+                }
+
+                var containerElement = document.querySelector('#app');
+                containerElement.appendChild(linkElement);
+
+            }
+
+            imprimeNomes(nomes);
+
+        </script>
+    </body>
+</html>
